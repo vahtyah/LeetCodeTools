@@ -1,6 +1,6 @@
 # 1422. Maximum Score After Splitting a String
 
-### Difficulty: Easy
+![Difficulty](https://img.shields.io/badge/Difficulty-Easy-brightgreen)
 
 ---
 
