@@ -1,0 +1,45 @@
+using TextCopy;
+
+string nameSolution = "0017. Letter Combinations of a Phone Number";
+string link = "https://leetcode.com/problems/letter-combinations-of-a-phone-number/submissions/1504012001/?envType=study-plan-v2&envId=leetcode-75";
+string category = "Backtracking";
+
+string CreateLinkFolderGithub()
+{
+    //example: path = "Binary Search/0162. Find Peak Element" -> return "https://github.com/vahtyah/LeetCodeSolutions/tree/main/Binary%20Search/0162.%20Find%20Peak%20Element"
+    var pathGithub = $"{category}/{nameSolution}";
+    var pathWithoutSpace = pathGithub.Replace(" ", "%20");
+    var path = $"https://github.com/vahtyah/LeetCodeSolutions/tree/main/{pathWithoutSpace}";
+    
+    //Save into clipboard
+    ClipboardService.SetText(path);
+    
+    return path;
+}
+
+
+void CreateFolderAndReadme()
+{
+    var finalContentReadme = $"<h1><a href=\"{link}\">{nameSolution}</a></h1>\n\n![Difficulty: Easy](https://img.shields.io/badge/Easy-46c6c2)\n![Difficulty: Medium](https://img.shields.io/badge/Medium-fac31d)\n![Difficulty: Hard](https://img.shields.io/badge/Hard-f8615c)\n\n---\n";
+    var path = $"{category}/{nameSolution}";
+    var folderPath = $"D:/LeetCodeSolutions/LeetCodeSolutions/{path}";
+    var nameScript = nameSolution.Replace(" ", "-");
+    nameScript = nameScript.Replace(".", "");
+    nameScript = nameScript.ToLower();
+    var scriptPath = $"{folderPath}/{nameScript}.cs";
+    var readmePath = $"{folderPath}/README.md";
+    if (!Directory.Exists(folderPath))
+    {
+        Directory.CreateDirectory(folderPath);
+        File.WriteAllText(readmePath, finalContentReadme);
+        File.WriteAllText(scriptPath, "");
+        Console.WriteLine(CreateLinkFolderGithub());
+    }
+    else
+    {
+        Console.WriteLine("Folder existed");
+    }
+}
+
+
+CreateFolderAndReadme();
