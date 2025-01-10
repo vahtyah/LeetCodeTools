@@ -5,3 +5,5 @@
 ![Difficulty: Hard](https://img.shields.io/badge/Hard-f8615c)
 
 ---
+
+Time: 0 ms (100.00%), Space: 37.80 MB (64.06%)
